@@ -19,6 +19,7 @@ A template for a Python FastAPI service:
 - [x] [Github Actions](https://github.com/features/actions) for CI/CD
 - [x] [pytest](https://docs.pytest.org/) for testing
 - [ ] [Kamal](https://kamal-deploy.org/) for deployment (TODO: add Kamal deploy action)
+- [ ] Migrate to uv
 
 ## Build and run locally
 
