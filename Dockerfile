@@ -6,7 +6,7 @@ WORKDIR /code
 RUN --mount=from=ghcr.io/astral-sh/uv,source=/uv,target=/bin/uv \
     --mount=type=bind,source=uv.lock,target=uv.lock \
     --mount=type=bind,source=pyproject.toml,target=pyproject.toml \
-    uv sync --frozen --no-cache
+    uv sync --frozen --no-dev --no-cache
 
 # Copy the application into the container.
 COPY ./app /code/app
