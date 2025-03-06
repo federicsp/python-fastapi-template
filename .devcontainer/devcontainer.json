@@ -34,12 +34,13 @@
         "workbench": {
           "iconTheme": "vscode-icons"
         },
-        "editor": {
-          "formatOnSave": true,
-          "defaultFormatter": "ms-python.black-formatter",
-          "codeActionsOnSave": {
-            "source.organizeImports": true
-          }
+        "[python]": {
+          "editor.formatOnSave": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+          },
+          "editor.defaultFormatter": "charliermarsh.ruff"
         }
       },
       "extensions": [
@@ -52,9 +53,7 @@
         "tamasfe.even-better-toml",
         "redhat.vscode-yaml",
         "ms-python.mypy-type-checker",
-        "ms-python.flake8",
-        "ms-python.black-formatter",
-        "ms-python.isort"
+        "charliermarsh.ruff"
       ]
     }
   }
