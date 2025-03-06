@@ -39,14 +39,15 @@ repos:
       - id: ruff
         name: ruff-sort-imports
         args: [--select, I, --fix]
-      # Run the linter.
-      - id: ruff
-        args: [--fix]
-      # Run the formatter.
-      - id: ruff-format
 
   - repo: local
     hooks:
+      - id: ruff-lint-format
+        name: Ruff Lint & Format
+        entry: bash -c "uv run ruff check --fix && uv run ruff format"
+        language: system
+        types: [ python ]
+
       - id: mypy
         name: Validate types with MyPy
         entry: uv run mypy
