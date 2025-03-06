@@ -32,24 +32,22 @@ repos:
     - id: pyupgrade
       args: [--py312-plus]
 
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.3.0
-    hooks:
-      # Sort imports.
-      - id: ruff
-        name: ruff-sort-imports
-        args: [--select, I, --fix]
-
   - repo: local
     hooks:
-      - id: ruff-lint-format
-        name: Ruff Lint & Format
-        entry: bash -c "uv run ruff check --fix && uv run ruff format"
+      - id: ruff-lint
+        name: Python code linting with Ruff
+        entry: uv run ruff check --fix
         language: system
-        types: [ python ]
+        types: [python]
+
+      - id: ruff-format
+        name: Python code formatting with Ruff
+        entry: uv run ruff format
+        language: system
+        types: [python]
 
       - id: mypy
-        name: Validate types with MyPy
+        name: Python type checking with MyPy
         entry: uv run mypy
         language: system
         types: [python]
