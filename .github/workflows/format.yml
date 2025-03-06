@@ -7,14 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        linter: [black, isort, flake8, mypy]
+        linter: [ruff, mypy]
         include:
-          - linter: black
-            command: black --check --diff .
-          - linter: isort
-            command: isort --check-only --diff .
-          - linter: flake8
-            command: flake8 --count .
+          - linter: ruff
+            command: ruff check --diff .
           - linter: mypy
             command: mypy .
     steps:

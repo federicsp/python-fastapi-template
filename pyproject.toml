@@ -13,26 +13,13 @@ dependencies = [
 
 [dependency-groups]
 dev = [
-    "autoflake>=2.3.1",
-    "black>=25.1.0",
-    "flake8>=7.1.2",
-    "isort>=6.0.0",
-    "mypy>=1.15.0",
-    "pre-commit>=4.1.0",
-    "pytest>=8.3.4",
-    "pytest-cov>=6.0.0",
-    "wemake-python-styleguide>=1.0.0",
+  "mypy>=1.15.0",
+  "pre-commit>=4.1.0",
+  "pytest>=8.3.4",
+  "pytest-cov>=6.0.0",
+  "ruff>=0.9.9",
+  "wemake-python-styleguide>=1.0.0",
 ]
-
-[tool.black]
-line-length = 120
-
-[tool.isort]
-profile = "black"
-line_length = 120
-src_paths = ["app", "tests"]
-lines_between_types = 1
-lines_after_imports = 2
 
 [tool.mypy]
 strict = true

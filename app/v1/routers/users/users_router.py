@@ -13,7 +13,7 @@ async def create_user(user: User, user_manager: UserManager = Depends(get_user_m
     try:
         return user_manager.create_user(user)
     except ValueError as ex:
-        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(ex))
+        raise HTTPException(status_code=status.HTTP_409_CONFLICT, detail=str(ex)) from ex
 
 
 @router.get("/{username}")
@@ -21,7 +21,7 @@ async def get_user(username: str, user_manager: UserManager = Depends(get_user_m
     try:
         return user_manager.get_user(username)
     except ValueError as ex:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(ex))
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(ex)) from ex
 
 
 @router.get("/")
@@ -34,7 +34,7 @@ async def update_user(username: str, user: User, user_manager: UserManager = Dep
     try:
         return user_manager.update_user(username, user)
     except ValueError as ex:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(ex))
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(ex)) from ex
 
 
 @router.delete("/{username}")
@@ -42,4 +42,4 @@ async def delete_user(username: str, user_manager: UserManager = Depends(get_use
     try:
         return user_manager.delete_user(username)
     except ValueError as ex:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(ex))
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=str(ex)) from ex

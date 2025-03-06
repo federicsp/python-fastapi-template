@@ -26,41 +26,27 @@ repos:
       - id: trailing-whitespace
         types: [python]
 
-  -   repo: https://github.com/asottile/pyupgrade
-      rev: v3.16.0
-      hooks:
-      - id: pyupgrade
-        args: [--py312-plus]
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.16.0
+    hooks:
+    - id: pyupgrade
+      args: [--py312-plus]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.0
+    hooks:
+      # Sort imports.
+      - id: ruff
+        name: ruff-sort-imports
+        args: [--select, I, --fix]
+      # Run the linter.
+      - id: ruff
+        args: [--fix]
+      # Run the formatter.
+      - id: ruff-format
 
   - repo: local
     hooks:
-      - id: black
-        name: Format Python code with Black
-        entry: uv run black
-        language: system
-        types: [python]
-
-      - id: isort
-        name: Sort Python imports with isort
-        entry: uv run isort
-        language: system
-        types: [python]
-
-      - id: autoflake
-        name: autoflake
-        entry: uv run autoflake
-        language: system
-        types: [python]
-        args: [--in-place, --remove-all-unused-imports, --remove-duplicate-keys, --ignore-init-module-imports]
-
-      - id: flake8
-        name: Check with Flake8
-        entry: uv run flake8
-        language: system
-        pass_filenames: false
-        types: [python]
-        args: [--count, .]
-
       - id: mypy
         name: Validate types with MyPy
         entry: uv run mypy
