@@ -14,7 +14,7 @@ A template for a Python FastAPI service:
 - [x] [FastAPI](https://fastapi.tiangolo.com/) for building the API
 - [x] [Devcontainer](https://code.visualstudio.com/docs/devcontainers/tutorial) for development environment
 - [x] [Docker](https://www.docker.com/) for containerization
-- [x] [Black](https://black.readthedocs.io/) & [isort](https://pycqa.github.io/isort/) for code formatting
+- [x] [ruff](https://docs.astral.sh/ruff/) for code formatting
 - [x] [pre-commit](https://pre-commit.com/) for code quality checks
 - [x] [Github Actions](https://github.com/features/actions) for CI/CD
 - [x] [pytest](https://docs.pytest.org/) for testing
